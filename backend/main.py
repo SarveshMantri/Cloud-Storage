@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from models import FileAttributes
 from s3_upload import s3_upload
 
+from database import fetch_all_files
+
 app = FastAPI()
 
 origins = ["http://localhost:3000"]
@@ -40,4 +42,10 @@ async def upload_files(files: list[UploadFile] = File(...)):
 
 @app.get("/all-file-attributes")
 async def get_all_file_attributes() -> list[FileAttributes] | None:
-    pass
+    response = None
+    try:
+        response = await fetch_all_files()
+    except Exception as e:
+        print(e)
+        return None
+    return response

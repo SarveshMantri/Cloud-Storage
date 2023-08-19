@@ -20,7 +20,6 @@ function FileForm() {
     selectedFiles.forEach((file) => {
       formData.append("files", file);
     });
-    console.log(formData);
     try {
       const response = await axios.post(
         "http://localhost:8000/upload",
@@ -37,6 +36,7 @@ function FileForm() {
       alert("Something went wrong!" + error);
       return;
     }
+
     setSelectedFiles([]);
     const fieldInput = document.getElementById("inputGroupFile");
     fieldInput.value = "";
@@ -68,6 +68,7 @@ function FileForm() {
           </button>
         </div>
       </div>
+
       {/* List files */}
       <div
         style={{

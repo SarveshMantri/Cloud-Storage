@@ -3,4 +3,4 @@ backend/__pycache__/
 venv/
 FastAPI_accessKeys.csv
 accessKeys.
-
+frontend/node_modules/
