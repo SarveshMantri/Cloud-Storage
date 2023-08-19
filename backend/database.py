@@ -18,3 +18,4 @@ async def fetch_all_files():
 async def create_file_entry(file):
     document = file
     result = await collection.insert_one(document)
+    return True

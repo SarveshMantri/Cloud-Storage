@@ -28,9 +28,7 @@ async def s3_upload(files: list[UploadFile]) -> bool:
                 "size": size,
                 "date": datetime.utcnow(),
             }
-            print(file_dict)
-            response = await create_file_entry(file_dict)
-            print(response)
+            await create_file_entry(file_dict)
     except Exception as e:
         print(f"Something went wrong : {e}")
         return False
